@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/screens/common_widgets/colors.dart';
+import 'package:netflix_clone/core/color/colors.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class FastLaughsScreen extends StatelessWidget {
+  const FastLaughsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class SearchScreen extends StatelessWidget {
       backgroundColor: blackColor,
       body: Center(
         child: Text(
-          'SearchScreen',
+          'FastLaughsScreen',
           style: TextStyle(color: Colors.red),
         ),
       ),

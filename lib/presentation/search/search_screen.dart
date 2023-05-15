@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/core/color/colors.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: blackColor,
       body: Center(
         child: Text(
-          'HomeScreen',
+          'SearchScreen',
           style: TextStyle(color: Colors.red),
         ),
       ),

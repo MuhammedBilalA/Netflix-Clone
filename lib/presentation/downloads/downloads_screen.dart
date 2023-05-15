@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/screens/common_widgets/colors.dart';
+import 'package:netflix_clone/core/color/colors.dart';
 
 class DownloadsScreen extends StatelessWidget {
   const DownloadsScreen({super.key});

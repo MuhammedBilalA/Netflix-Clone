@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/screens/downloads_screen.dart';
-import 'package:netflix_clone/screens/fast_laughs_screen.dart';
-import 'package:netflix_clone/screens/home_screen.dart';
-import 'package:netflix_clone/screens/news_and_hot_screen.dart';
-import 'package:netflix_clone/screens/search_screen.dart';
+import 'package:netflix_clone/presentation/downloads/downloads_screen.dart';
+import 'package:netflix_clone/presentation/fast_laugh/fast_laughs_screen.dart';
+import 'package:netflix_clone/presentation/home/home_screen.dart';
+import 'package:netflix_clone/presentation/news_and_hot/news_and_hot_screen.dart';
+import 'package:netflix_clone/presentation/search/search_screen.dart';
+
+
 
 class NavBar extends StatefulWidget {
  const NavBar({super.key});
@@ -16,7 +18,7 @@ class _NavBarState extends State<NavBar> {
   int cIndex = 0;
   @override
   Widget build(BuildContext context) {
-    List screens =const [
+    List screens = [
       HomeScreen(),
       NewsAndHotScreen(),
       FastLaughsScreen(),
