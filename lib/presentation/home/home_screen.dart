@@ -1,3 +1,4 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix_clone/apikey.dart';
@@ -37,17 +38,131 @@ class HomeScreen extends StatelessWidget {
                       FutureBuilder(
                         future: getImageTrending(),
                         builder: (context, snapshot) {
-                          String? imagepath = snapshot.data?[18].poster_path;
+                          String? imagepath = snapshot
+                              .data?[snapshot.data!.length - 1].poster_path;
                           return snapshot.hasData
-                              ? Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.6,
-                                  width: double.infinity,
-                                  child: Image.network(
-                                    '$baseurl$imagepath',
-                                    fit: BoxFit.cover,
-                                  ))
-                              : Center(
+                              ? Stack(children: [
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.7,
+                                      width: double.infinity,
+                                      child: PageView(
+                                        children: [
+                                          Image.network(
+                                            (baseurl + imagepath!),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Image.network(
+                                            (baseurl +
+                                                ((snapshot
+                                                        .data?[snapshot
+                                                                .data!.length -
+                                                            5]
+                                                        .poster_path) ??
+                                                    '')),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Image.network(
+                                            (baseurl +
+                                                ((snapshot
+                                                        .data?[snapshot
+                                                                .data!.length -
+                                                            2]
+                                                        .poster_path) ??
+                                                    '')),
+                                            fit: BoxFit.cover,
+                                          )
+                                        ],
+                                      )),
+                                  //-----------------------------
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 550),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 100,
+                                      color: Colors.transparent,
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 48.0, top: 25),
+                                            child: Column(
+                                              children: const [
+                                                Icon(
+                                                  Icons.add,
+                                                  color: Colors.white,
+                                                  size: 27,
+                                                ),
+                                                Text(
+                                                  'My List',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 15),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 58.0),
+                                            child: Container(
+                                              height: 45,
+                                              width: 105,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              child: Row(
+                                                // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: const [
+                                                  Spacer(
+                                                    flex: 1,
+                                                  ),
+                                                  Icon(
+                                                    Icons.play_arrow_rounded,
+                                                    size: 32,
+                                                  ),
+                                                  Spacer(
+                                                    flex: 1,
+                                                  ),
+                                                  Text(
+                                                    'Play',
+                                                    style:
+                                                        TextStyle(fontSize: 20),
+                                                  ),
+                                                  Spacer(
+                                                    flex: 2,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 65, top: 25),
+                                            child: Column(
+                                              children: const [
+                                                Icon(
+                                                  Icons.info_outline,
+                                                  color: Colors.white,
+                                                  size: 27,
+                                                ),
+                                                Text(
+                                                  'info',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 15),
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ])
+                              : const Center(
                                   child: CircularProgressIndicator(
                                     color: Colors.red,
                                   ),
@@ -142,7 +257,7 @@ class HomeScreen extends StatelessWidget {
                               itemCount: 20),
                         ),
                       ),
-                      titleHomeScreen('Top Rated'),
+                      titleHomeScreen('Top 10 TV Shows in India Today'),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: SizedBox(
@@ -156,16 +271,34 @@ class HomeScreen extends StatelessWidget {
                                     String? imagePath =
                                         snapshot.data?[index].posterPath;
                                     return snapshot.hasData
-                                        ? SizedBox(
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              child: Image.network(
-                                                '$baseurl$imagePath',
-                                                fit: BoxFit.cover,
+                                        ? Stack(children: [
+                                            SizedBox(
+                                              // width: 150,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                child: Image.network(
+                                                  '$baseurl$imagePath',
+                                                  // width: 150,
+                                                  // fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
-                                          )
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 110, left: 0),
+                                              child: BorderedText(
+                                                strokeColor: Colors.white,
+                                                strokeWidth: 10,
+                                                child: Text(
+                                                  '${1 + index}',
+                                                  style: TextStyle(
+                                                      fontSize: 130,
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            )
+                                          ])
                                         : const Padding(
                                             padding: EdgeInsets.fromLTRB(
                                                 25, 15, 25, 15),
@@ -180,10 +313,10 @@ class HomeScreen extends StatelessWidget {
                               },
                               separatorBuilder: (context, index) {
                                 return const SizedBox(
-                                  width: 15,
+                                  width: 25,
                                 );
                               },
-                              itemCount: 20),
+                              itemCount: 10),
                         ),
                       ),
                       titleHomeScreen('Up Coming'),
@@ -233,7 +366,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                scrollNotifier.value == true ? AppBarWidget() : SizedBox()
+                scrollNotifier.value == true ? AppBarWidget() : SizedBox(),
               ],
             );
           },
@@ -267,7 +400,7 @@ class AppBarWidget extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: double.infinity,
-      color: Colors.transparent,
+      color: Colors.black.withOpacity(0.4),
       child: Column(
         children: [
           Row(
