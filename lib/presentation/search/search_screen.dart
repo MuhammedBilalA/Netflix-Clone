@@ -34,14 +34,14 @@ class SearchScreen extends StatelessWidget {
                         controller: searchControllor,
                         decoration: InputDecoration(
                             hintText: 'Search',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                                 color: Color.fromARGB(255, 208, 205, 205)),
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.search,
                               // size: 26,
                               color: Color.fromARGB(255, 208, 205, 205),
                             ),
-                            fillColor: Color.fromARGB(255, 106, 106, 106),
+                            fillColor: const Color.fromARGB(255, 106, 106, 106),
                             filled: true,
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10))),
@@ -73,7 +73,7 @@ class SearchScreen extends StatelessWidget {
                                       String? titlepath =
                                           snapshot.data?[index].title;
 
-                                      return Container(
+                                      return SizedBox(
                                         height: 100,
                                         width: double.infinity,
                                         child: Row(
@@ -118,7 +118,7 @@ class SearchScreen extends StatelessWidget {
                                             ),
                                             IconButton(
                                                 onPressed: () {},
-                                                icon: Icon(
+                                                icon: const Icon(
                                                   Icons
                                                       .play_circle_outline_sharp,
                                                   size: 33,
@@ -129,12 +129,12 @@ class SearchScreen extends StatelessWidget {
                                       );
                                     },
                                     separatorBuilder: (context, index) {
-                                      return SizedBox(
+                                      return const SizedBox(
                                         height: 10,
                                       );
                                     },
                                     itemCount: snapshot.data!.length)
-                                : Center(
+                                : const Center(
                                     child: CircularProgressIndicator(
                                       color: Colors.red,
                                     ),
@@ -151,7 +151,7 @@ class SearchScreen extends StatelessWidget {
                                 ? GridView.builder(
                                     itemCount: snapshot.data!.length,
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 3,
                                             mainAxisExtent: 220,
                                             crossAxisSpacing: 8,
@@ -176,14 +176,14 @@ class SearchScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             )
-                                          : Center(
+                                          : const Center(
                                               child: CircularProgressIndicator(
                                                 color: Colors.red,
                                               ),
                                             );
                                     },
                                   )
-                                : Center(
+                                : const Center(
                                     child: CircularProgressIndicator(
                                       color: Colors.red,
                                     ),

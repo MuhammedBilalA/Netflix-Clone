@@ -1,29 +1,30 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'search.g.dart';
+
+
+part 'now_playing.g.dart';
 
 @JsonSerializable()
-class Search {
+class NowPlaying {
   List<Result>? results;
 
-  Search({this.results});
+  NowPlaying({this.results});
 
-  factory Search.fromJson(Map<String, dynamic> json) {
-    return _$SearchFromJson(json);
+  factory NowPlaying.fromJson(Map<String, dynamic> json) {
+    return _$NowPlayingFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$SearchToJson(this);
+  Map<String, dynamic> toJson() => _$NowPlayingToJson(this);
 }
 
 @JsonSerializable()
 class Result {
   @JsonKey(name: 'backdrop_path')
   String? backdropPath;
-  @JsonKey(name: 'poster_path')
-  String? posterPath;
+  String? overview;
   String? title;
 
-  Result({this.backdropPath, this.posterPath, this.title});
+  Result({this.backdropPath, this.overview, this.title});
 
   factory Result.fromJson(Map<String, dynamic> json) {
     return _$ResultFromJson(json);

@@ -1,33 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'trending.dart';
+part of 'now_playing.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Trending _$TrendingFromJson(Map<String, dynamic> json) => Trending(
+NowPlaying _$NowPlayingFromJson(Map<String, dynamic> json) => NowPlaying(
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$TrendingToJson(Trending instance) => <String, dynamic>{
+Map<String, dynamic> _$NowPlayingToJson(NowPlaying instance) =>
+    <String, dynamic>{
       'results': instance.results,
     };
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
-      poster_path: json['poster_path'] as String?,
-      original_title: json['original_title'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
       overview: json['overview'] as String?,
-      backdrop_path: json['backdrop_path'] as String?,
-      release_date: json['release_date'] as String?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
-      'poster_path': instance.poster_path,
-      'original_title': instance.original_title,
+      'backdrop_path': instance.backdropPath,
       'overview': instance.overview,
-      'backdrop_path': instance.backdrop_path,
-      'release_date': instance.release_date,
+      'title': instance.title,
     };
