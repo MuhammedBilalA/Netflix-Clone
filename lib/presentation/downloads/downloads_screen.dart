@@ -146,7 +146,8 @@ class DownloadsScreen extends StatelessWidget {
                                   width: 330,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(200),
-                                    color: const Color.fromARGB(255, 86, 84, 84),
+                                    color:
+                                        const Color.fromARGB(255, 86, 84, 84),
                                   ),
                                 ),
                               ),

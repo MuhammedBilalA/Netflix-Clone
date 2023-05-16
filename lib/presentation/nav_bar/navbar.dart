@@ -5,10 +5,8 @@ import 'package:netflix_clone/presentation/home/home_screen.dart';
 import 'package:netflix_clone/presentation/news_and_hot/news_and_hot_screen.dart';
 import 'package:netflix_clone/presentation/search/search_screen.dart';
 
-
-
 class NavBar extends StatefulWidget {
- const NavBar({super.key});
+  const NavBar({super.key});
 
   @override
   State<NavBar> createState() => _NavBarState();
