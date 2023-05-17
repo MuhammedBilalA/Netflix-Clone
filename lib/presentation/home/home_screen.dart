@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
                                               0.7,
                                       width: double.infinity,
                                       child: PageView(
+                                        
                                         children: [
                                           Image.network(
                                             (baseurl + imagepath!),

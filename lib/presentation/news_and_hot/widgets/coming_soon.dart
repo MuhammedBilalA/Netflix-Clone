@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/apikey.dart';
 import 'package:netflix_clone/domain/trending/trending.dart';
 import 'package:netflix_clone/domain/trending/trending_functions.dart';
+import 'package:netflix_clone/presentation/fast_laugh/fast_laughs_screen.dart';
 
 class ComingSoon extends StatelessWidget {
   ComingSoon({super.key});
@@ -78,14 +79,9 @@ class ComingSoon extends StatelessWidget {
                                       ),
                                     ),
                                     Positioned(
-                                        left: 320,
+                                        left: 300,
                                         top: 220,
-                                        child: Icon(
-                                          Icons.volume_off_sharp,
-                                          size: 25,
-                                          color: Color.fromARGB(
-                                              255, 238, 234, 234),
-                                        ))
+                                        child: VolumeWidgetMute())
                                   ],
                                 ),
                                 Row(
