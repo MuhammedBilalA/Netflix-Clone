@@ -1,8 +1,6 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/apikey.dart';
 import 'package:netflix_clone/core/color/colors.dart';
+import 'package:netflix_clone/core/widgets/lists.dart';
 import 'package:netflix_clone/domain/trending/trending_functions.dart';
 import 'package:video_player/video_player.dart';
 
@@ -17,33 +15,6 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
   bool volbut = true;
   late VideoPlayerController _controller;
   late String videoPath;
-  List videoPathList = [
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-  ];
-
-  List images = [
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/SubaruOutbackOnStreetAndDirt.jpg",
-    "https://storage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg"
-  ];
 
   @override
   void initState() {
@@ -87,7 +58,7 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                 },
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       height: double.infinity,
                       width: double.infinity,
                       // color: Colors.purple,
@@ -95,7 +66,7 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                         aspectRatio: _controller.value.aspectRatio,
                         child: _controller.value.isInitialized
                             ? VideoPlayer(_controller)
-                            : Center(
+                            : const Center(
                                 child: CircularProgressIndicator(
                                   color: Colors.red,
                                 ),
@@ -105,7 +76,7 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: Container(
+                      child: SizedBox(
                         height: 350,
                         width: 100,
                         // color: Colors.green,
@@ -116,9 +87,14 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                               builder: (context, snapshot) {
                                 String? imagepath =
                                     snapshot.data?[index].poster_path;
+
                                 return Container(
                                   height: 70,
                                   width: 70,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    // color: Colors.red,
+                                  ),
                                   child: (snapshot.hasData)
                                       ? ClipRRect(
                                           borderRadius:
@@ -133,14 +109,10 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                                               BorderRadius.circular(50),
                                           child: Image.asset(
                                               'assets/images/netflixsmily.png')),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    // color: Colors.red,
-                                  ),
                                 );
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             iconList(
@@ -154,28 +126,7 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
                         ),
                       ),
                     ),
-                    Positioned(
-                      bottom: 10,
-                      left: 20,
-                      child: GestureDetector(
-                          onTap: () {
-                            print(
-                                '--------------------------------------------------------------------------');
-                            if (volbut) {
-                              volbut = false;
-                              _controller.setVolume(1);
-
-                            } else {
-                              volbut = true;
-                              _controller.setVolume(0);
-
-                            }
-                            setState(() {});
-                          },
-                          child: (volbut)
-                              ? VolumeWidgetMute()
-                              : VolumeWidgetPlay()),
-                    )
+                    volumeControlingFunction()
                   ],
                 ),
               );
@@ -194,8 +145,27 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
     );
   }
 
-  Container iconList({required String text, required var icon}) {
-    return Container(
+  Positioned volumeControlingFunction() {
+    return Positioned(
+      bottom: 10,
+      left: 20,
+      child: GestureDetector(
+          onTap: () {
+            if (volbut) {
+              volbut = false;
+              _controller.setVolume(1);
+            } else {
+              volbut = true;
+              _controller.setVolume(0);
+            }
+            setState(() {});
+          },
+          child: (volbut) ? const VolumeWidgetMute() : VolumeWidgetPlay()),
+    );
+  }
+
+  SizedBox iconList({required String text, required var icon}) {
+    return SizedBox(
       height: 65,
       width: 70,
       // color: Colors.t,
@@ -208,7 +178,7 @@ class _FastLaughsScreenState extends State<FastLaughsScreen> {
           ),
           Text(
             text,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           )
         ],
       ),
@@ -228,9 +198,9 @@ class VolumeWidgetMute extends StatelessWidget {
       width: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Color.fromARGB(94, 36, 36, 36),
+        color: const Color.fromARGB(94, 36, 36, 36),
       ),
-      child: Icon(
+      child: const Icon(
         Icons.volume_off,
         color: Colors.white,
       ),
@@ -250,9 +220,9 @@ class VolumeWidgetPlay extends StatelessWidget {
       width: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Color.fromARGB(94, 36, 36, 36),
+        color: const Color.fromARGB(94, 36, 36, 36),
       ),
-      child: Icon(
+      child: const Icon(
         Icons.volume_up,
         color: Colors.white,
       ),

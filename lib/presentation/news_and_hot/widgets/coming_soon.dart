@@ -98,9 +98,7 @@ class ComingSoon extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
-                                    // SizedBox(
-                                    //   width: 160,
-                                    // ),
+                                
                                     Column(
                                       children: [
                                         Icon(

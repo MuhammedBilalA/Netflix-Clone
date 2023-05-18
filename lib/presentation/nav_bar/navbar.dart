@@ -18,10 +18,10 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     List screens = [
       HomeScreen(),
-      NewsAndHotScreen(),
-      FastLaughsScreen(),
-      SearchScreen(),
-      DownloadsScreen(),
+      const NewsAndHotScreen(),
+      const FastLaughsScreen(),
+      const SearchScreen(),
+      const DownloadsScreen(),
     ];
 
     List<BottomNavigationBarItem> items = const [

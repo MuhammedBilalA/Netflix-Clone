@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/apikey.dart';
 import 'package:netflix_clone/domain/now_playing/now_playing_functions.dart';
@@ -16,7 +15,7 @@ class EveryoneWatching extends StatelessWidget {
               future: getImageNowPlaying(),
               builder: (context, snapshot) {
                 return snapshot.hasData
-                    ? Container(
+                    ? SizedBox(
                         height: 500,
                         width: double.infinity,
                         // color: Colors.green,
@@ -26,31 +25,31 @@ class EveryoneWatching extends StatelessWidget {
                             Text(
                               '${snapshot.data?[index].title}',
                               style: GoogleFonts.nunito(
-                                  color: Color.fromARGB(255, 212, 210, 210),
+                                  color: const Color.fromARGB(255, 212, 210, 210),
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
-                              child: Container(
+                              child: SizedBox(
                                 // color: Colors.red,
                                 height: 80,
                                 width: 600,
                                 child: Text(
                                   '${snapshot.data?[index].overview}',
                                   style: GoogleFonts.nunito(
-                                      color: Color.fromARGB(255, 212, 210, 210),
+                                      color: const Color.fromARGB(255, 212, 210, 210),
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                   overflow: TextOverflow.clip,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Stack(children: [
-                              Container(
+                              SizedBox(
                                 height: 270,
                                 width: 600,
                                 // color: Colors.purple,
@@ -59,7 +58,7 @@ class EveryoneWatching extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              Positioned(
+                              const Positioned(
                                   left: 380,
                                   top: 230,
                                   child: Icon(
@@ -69,7 +68,7 @@ class EveryoneWatching extends StatelessWidget {
                             ]),
                             Row(
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 100,
                                   // height: 127,
                                   // color: Colors.red,
@@ -78,13 +77,13 @@ class EveryoneWatching extends StatelessWidget {
                                       ' LOST \n    IN \nSPACE',
                                       style: GoogleFonts.nunito(
                                         color:
-                                            Color.fromARGB(255, 212, 210, 210),
+                                            const Color.fromARGB(255, 212, 210, 210),
                                         fontSize: 13,
                                       ),
                                     ),
                                   ),
                                 ),
-                                Spacer(
+                                const Spacer(
                                   flex: 1,
                                 ),
                                 Container(
@@ -105,7 +104,7 @@ class EveryoneWatching extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.send_outlined,
                                               color: Color.fromARGB(
                                                   255, 172, 171, 171),
@@ -114,7 +113,7 @@ class EveryoneWatching extends StatelessWidget {
                                             Text(
                                               'Share',
                                               style: GoogleFonts.nunito(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 172, 171, 171),
                                                 fontSize: 13,
                                               ),
@@ -127,7 +126,7 @@ class EveryoneWatching extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.add,
                                               color: Color.fromARGB(
                                                   255, 172, 171, 171),
@@ -136,7 +135,7 @@ class EveryoneWatching extends StatelessWidget {
                                             Text(
                                               'My List',
                                               style: GoogleFonts.nunito(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 172, 171, 171),
                                                 fontSize: 13,
                                               ),
@@ -149,7 +148,7 @@ class EveryoneWatching extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.play_arrow_outlined,
                                               color: Color.fromARGB(
                                                   255, 172, 171, 171),
@@ -158,7 +157,7 @@ class EveryoneWatching extends StatelessWidget {
                                             Text(
                                               'Play',
                                               style: GoogleFonts.nunito(
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 172, 171, 171),
                                                 fontSize: 13,
                                               ),
@@ -174,13 +173,13 @@ class EveryoneWatching extends StatelessWidget {
                           ],
                         ),
                       )
-                    : Center(
+                    : const Center(
                         child: CircularProgressIndicator(),
                       );
               });
         },
         separatorBuilder: (context, index) {
-          return SizedBox(
+          return const SizedBox(
             height: 10,
           );
         },
