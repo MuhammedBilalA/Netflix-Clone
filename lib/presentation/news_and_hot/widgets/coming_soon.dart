@@ -209,30 +209,30 @@ class ComingSoon extends StatelessWidget {
   }
 
   String? dateConversion(AsyncSnapshot<List<Result>> snapshot, int index,
-      int? converteddate, String? stringdate) {
-    if (converteddate == 1) {
+      int? converteMonth, String? stringdate) {
+    if (converteMonth == 1) {
       stringdate = 'JAN';
-    } else if (converteddate == 2) {
+    } else if (converteMonth == 2) {
       stringdate = 'FEB';
-    } else if (converteddate == 3) {
+    } else if (converteMonth == 3) {
       stringdate = 'MAR';
-    } else if (converteddate == 4) {
+    } else if (converteMonth == 4) {
       stringdate = 'APL';
-    } else if (converteddate == 5) {
+    } else if (converteMonth == 5) {
       stringdate = 'MAY';
-    } else if (converteddate == 6) {
+    } else if (converteMonth == 6) {
       stringdate = 'JUN';
-    } else if (converteddate == 7) {
+    } else if (converteMonth == 7) {
       stringdate = 'JUL';
-    } else if (converteddate == 8) {
+    } else if (converteMonth == 8) {
       stringdate = 'AUG';
-    } else if (converteddate == 9) {
+    } else if (converteMonth == 9) {
       stringdate = 'SEP';
-    } else if (converteddate == 10) {
+    } else if (converteMonth == 10) {
       stringdate = 'OCT';
-    } else if (converteddate == 11) {
+    } else if (converteMonth == 11) {
       stringdate = 'NOV';
-    } else if (converteddate == 12) {
+    } else if (converteMonth == 12) {
       stringdate = 'DEC';
     }
     return stringdate;
