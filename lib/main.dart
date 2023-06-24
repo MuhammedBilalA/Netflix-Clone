@@ -19,7 +19,7 @@ class NetflixClone extends StatelessWidget {
     800: Color(0xFF424242),
     900: Color(0xFF212121),
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

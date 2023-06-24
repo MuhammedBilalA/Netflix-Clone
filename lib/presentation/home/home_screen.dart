@@ -111,8 +111,7 @@ class HomeScreen extends StatelessWidget {
                         )
                       : const Padding(
                           padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          child: CenterIndicator()
-                        );
+                          child: CenterIndicator());
                 },
               );
             },
@@ -166,8 +165,7 @@ class HomeScreen extends StatelessWidget {
                         ])
                       : const Padding(
                           padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          child: CenterIndicator()
-                        );
+                          child: CenterIndicator());
                 },
               );
             },
@@ -205,8 +203,7 @@ class HomeScreen extends StatelessWidget {
                         )
                       : const Padding(
                           padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          child: CenterIndicator()
-                        );
+                          child: CenterIndicator());
                 },
               );
             },
@@ -244,8 +241,7 @@ class HomeScreen extends StatelessWidget {
                         )
                       : const Padding(
                           padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          child: CenterIndicator()
-                        );
+                          child: CenterIndicator());
                 },
               );
             },
@@ -379,8 +375,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({

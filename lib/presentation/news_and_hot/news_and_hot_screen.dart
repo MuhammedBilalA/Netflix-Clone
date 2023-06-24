@@ -59,44 +59,42 @@ class NewsAndHotScreen extends StatelessWidget {
 
   Container newsandHotAppBar() {
     return Container(
-                  // color: Colors.red,
-                  width: double.infinity,
-                  height: 70,
-                  child: Row(
-                    children: [
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      Text(
-                        'New & Hot',
-                        style: GoogleFonts.nunito(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const Spacer(
-                        flex: 30,
-                      ),
-                      const Icon(
-                        Icons.cast,
-                        size: 35,
-                        color: Colors.white,
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      SizedBox(
-                        width: 35,
-                        child: Image.asset(
-                          'assets/images/netflixsmily.png',
-                          width: 35,
-                        ),
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      )
-                    ],
-                  ),
-                );
+      // color: Colors.red,
+      width: double.infinity,
+      height: 70,
+      child: Row(
+        children: [
+          const Spacer(
+            flex: 1,
+          ),
+          Text(
+            'New & Hot',
+            style: GoogleFonts.nunito(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          const Spacer(
+            flex: 30,
+          ),
+          const Icon(
+            Icons.cast,
+            size: 35,
+            color: Colors.white,
+          ),
+          const Spacer(
+            flex: 1,
+          ),
+          SizedBox(
+            width: 35,
+            child: Image.asset(
+              'assets/images/netflixsmily.png',
+              width: 35,
+            ),
+          ),
+          const Spacer(
+            flex: 1,
+          )
+        ],
+      ),
+    );
   }
 }

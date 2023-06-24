@@ -25,7 +25,8 @@ class EveryoneWatching extends StatelessWidget {
                             Text(
                               '${snapshot.data?[index].title}',
                               style: GoogleFonts.nunito(
-                                  color: const Color.fromARGB(255, 212, 210, 210),
+                                  color:
+                                      const Color.fromARGB(255, 212, 210, 210),
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -38,7 +39,8 @@ class EveryoneWatching extends StatelessWidget {
                                 child: Text(
                                   '${snapshot.data?[index].overview}',
                                   style: GoogleFonts.nunito(
-                                      color: const Color.fromARGB(255, 212, 210, 210),
+                                      color: const Color.fromARGB(
+                                          255, 212, 210, 210),
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                   overflow: TextOverflow.clip,
@@ -76,8 +78,8 @@ class EveryoneWatching extends StatelessWidget {
                                     child: Text(
                                       ' LOST \n    IN \nSPACE',
                                       style: GoogleFonts.nunito(
-                                        color:
-                                            const Color.fromARGB(255, 212, 210, 210),
+                                        color: const Color.fromARGB(
+                                            255, 212, 210, 210),
                                         fontSize: 13,
                                       ),
                                     ),

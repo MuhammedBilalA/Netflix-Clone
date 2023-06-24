@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:netflix_clone/domain/now_playing/now_playing.dart';
 
 import 'package:http/http.dart' as http;

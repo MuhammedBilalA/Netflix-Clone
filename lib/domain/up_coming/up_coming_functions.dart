@@ -15,7 +15,6 @@ Future<List<Result>> getImageUpComing() async {
     if (result.results != null) {
       return result.results!;
     }
-    
   }
   List<Result> empty = [];
   return empty;
